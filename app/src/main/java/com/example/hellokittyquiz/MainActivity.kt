@@ -1,6 +1,7 @@
 /***
  * MCS 270
  * Hello Kitty Quiz
+ * Now linked to Github :)
  *
  * @author Austin Legatt
  */
