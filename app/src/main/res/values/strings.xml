@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">HelloKittyQuiz</string>
+    <string name="true_button"> True </string>
+    <string name="false_button"> False </string>
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
+    <string name="next_button">Next</string>\
+    <string name="kitty1">Hello Kitty is from London</string>
+    <string name="kitty2">Hello Kitty has a pet cat called Gross Kitty</string>
+    <string name="kitty3">Hello Kitty\'s measurements are in pears</string>
+    <string name="kitty4">Hello Kitty did not appear on TV until 1987</string>
+    <string name="previous_button">Previous</string>
+    <string name="next_button_assist">Next Button</string>
+    <string name="previous_button_assist">Previous Button</string>
+    <string name="answered">This Question Has Already Been Answered</string>
+
+</resources>
