@@ -7,6 +7,9 @@ private const val TAG = "QuizViewModel"
 
 class QuizViewModel : ViewModel(){
 
+    //Score tracking vars
+    var score: Int = 0
+    var totalAnswered: Int = 0
     // Initializing index counter
     var index = 0
     // Load questions by creating a list of Question objects

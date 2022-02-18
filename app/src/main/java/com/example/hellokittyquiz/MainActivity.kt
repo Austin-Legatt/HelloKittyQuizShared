@@ -2,6 +2,7 @@
  * MCS 270
  * Hello Kitty Quiz
  * Now linked to Github :)
+ * Challenge Sets 1,2 complete
  *
  * @author Austin Legatt
  */
@@ -21,13 +22,13 @@ private const val TAG = "MainActivity"
 private const val KEY_INDEX = "index"
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var trueButton: Button
     private lateinit var falseButton: Button
     private lateinit var nextButton: ImageButton
     private lateinit var previousButton: ImageButton
     private lateinit var questionTextView: TextView
-    private var score: Int = 0
-    private var totalAnswered: Int = 0
+
 
     private val quizViewModel: QuizViewModel by lazy {
         ViewModelProviders.of(this).get(QuizViewModel::class.java)
@@ -65,6 +66,10 @@ class MainActivity : AppCompatActivity() {
         }
         //Initializes the first question text
         updateQuestion()
+        //During a state change, check if current question is answerable and, if not, disable answer buttons
+        if(quizViewModel.questionBank[quizViewModel.index].answered){
+            changeButtonState(trueButton, falseButton, false)
+        }
         //Operating next button
         nextButton.setOnClickListener {
             quizViewModel.moveToNext()
@@ -111,20 +116,20 @@ class MainActivity : AppCompatActivity() {
             )//.setGravity(Gravity.TOP,0,0)
             correctToast.setGravity(Gravity.TOP, 0, 0)
             correctToast.show()
-            score++
-            totalAnswered++
+            quizViewModel.score++
+            quizViewModel.totalAnswered++
         } else {
             quizViewModel.questionBank[quizViewModel.index].answered = true
             val falseToast = Toast.makeText(this, R.string.incorrect_toast, Toast.LENGTH_LONG)
             falseToast.setGravity(Gravity.TOP, 0, 0)
             falseToast.show()
-            totalAnswered++
+            quizViewModel.totalAnswered++
         }
         //Second 'if' presents a score if all questions are answered
-        if (totalAnswered == quizViewModel.questionBank.size) {
+        if (quizViewModel.totalAnswered == quizViewModel.questionBank.size) {
             val scoreToast = Toast.makeText(
                 this,
-                "You scored " + score * 100.0 / quizViewModel.questionBank.size + "%",
+                "You scored " + quizViewModel.score * 100.0 / quizViewModel.questionBank.size + "%",
                 Toast.LENGTH_LONG
             )
             scoreToast.setGravity(Gravity.TOP, 0, 0)
