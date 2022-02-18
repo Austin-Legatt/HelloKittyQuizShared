@@ -23,6 +23,7 @@ private const val KEY_INDEX = "index"
 
 class MainActivity : AppCompatActivity() {
 
+    //Buttons declared
     private lateinit var trueButton: Button
     private lateinit var falseButton: Button
     private lateinit var nextButton: ImageButton
@@ -42,10 +43,12 @@ class MainActivity : AppCompatActivity() {
         val currentIndex = savedInstanceState?.getInt(KEY_INDEX, 0) ?: 0
         quizViewModel.index = currentIndex
 
+        //Buttons vars assigned
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
         nextButton = findViewById(R.id.next_button)
         previousButton = findViewById(R.id.previous_button)
+        //Assign question TextView
         questionTextView = findViewById(R.id.question_text_view)
         /* Treat question text as a "next" button */
         questionTextView.setOnClickListener{
@@ -126,6 +129,7 @@ class MainActivity : AppCompatActivity() {
             quizViewModel.totalAnswered++
         }
         //Second 'if' presents a score if all questions are answered
+        /* Known "error": Does override previous correctness Toast*/
         if (quizViewModel.totalAnswered == quizViewModel.questionBank.size) {
             val scoreToast = Toast.makeText(
                 this,
@@ -136,6 +140,10 @@ class MainActivity : AppCompatActivity() {
             scoreToast.show()
         }
     }
+
+    /***
+     * Change the clickable state of the answer buttons
+     */
     private fun changeButtonState(trueBut:Button, falseBut: Button, state: Boolean){
         trueBut.isClickable = state
         falseBut.isClickable = state
