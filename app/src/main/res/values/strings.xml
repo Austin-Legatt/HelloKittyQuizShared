@@ -14,4 +14,9 @@
     <string name="previous_button_assist">Previous Button</string>
     <string name="answered">This Question Has Already Been Answered</string>
 
+    <string name="warning_text">Are you sure you want to do this?</string>
+    <string name="show_answer_button">Show Answer</string>
+    <string name="cheat_button">Cheat!</string>
+    <string name="judgement_toast">Cheating is wrong.</string>
+
 </resources>

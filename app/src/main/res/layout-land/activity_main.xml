@@ -29,21 +29,27 @@
             android:text ="@string/false_button">
         </Button>
     </LinearLayout>
-        <ImageButton
-            android:id="@+id/previous_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|left"
-            android:src="@drawable/arrow_left"
-            android:padding = "15dp"
-            android:contentDescription="@string/previous_button_assist" />
-        <ImageButton
-            android:id="@+id/next_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:src="@drawable/arrow_right"
-            android:padding = "15dp"
-            android:contentDescription="@string/next_button_assist" />
+    <Button
+        android:id="@+id/cheat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="@string/cheat_button"/>
+    <ImageButton
+        android:id="@+id/previous_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:src="@drawable/arrow_left"
+        android:padding = "15dp"
+        android:contentDescription="@string/previous_button_assist" />
+    <ImageButton
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/arrow_right"
+        android:padding = "15dp"
+        android:contentDescription="@string/next_button_assist" />
 
 </FrameLayout>

@@ -12,6 +12,8 @@ class QuizViewModel : ViewModel(){
     var totalAnswered: Int = 0
     // Initializing index counter
     var index = 0
+    //Cheat status
+    var isCheater = false
     // Load questions by creating a list of Question objects
     val questionBank = listOf(
         Question(R.string.kitty1, true),
