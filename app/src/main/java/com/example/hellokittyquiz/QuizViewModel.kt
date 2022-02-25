@@ -1,6 +1,5 @@
 package com.example.hellokittyquiz
 
-import Question
 import androidx.lifecycle.ViewModel
 
 private const val TAG = "QuizViewModel"
@@ -12,9 +11,7 @@ class QuizViewModel : ViewModel(){
     var totalAnswered: Int = 0
     // Initializing index counter
     var index = 0
-    //Cheat status
-    var isCheater = false
-    // Load questions by creating a list of Question objects
+    // Load questions by creating a list of com.example.hellokittyquiz.Question objects
     val questionBank = listOf(
         Question(R.string.kitty1, true),
         Question(R.string.kitty2, false),

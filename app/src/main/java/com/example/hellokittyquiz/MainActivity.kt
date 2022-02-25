@@ -9,7 +9,6 @@
 package com.example.hellokittyquiz
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -119,7 +118,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         if(requestCode == REQUEST_CODE_CHEAT){
-            quizViewModel.isCheater =
+            quizViewModel.questionBank[quizViewModel.index].hasCheated=
                 data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
         }
     }
@@ -141,10 +140,13 @@ class MainActivity : AppCompatActivity() {
      * @param answer Boolean of user input for true/false answers
      */
     private fun toastCheck(answer:Boolean) {
-        quizViewModel.questionBank[quizViewModel.index].answered = true
+        //Create a reference to the current question to ease readability and compactness
+        val currentQuest: Question = quizViewModel.questionBank[quizViewModel.index]
+        //Change answered state to prevent repeat answers
+        currentQuest.answered = true
         val messageResId = when{
-            quizViewModel.isCheater -> R.string.judgement_toast
-            answer == quizViewModel.questionBank[quizViewModel.index].questAnswer -> R.string.correct_toast
+            currentQuest.hasCheated -> R.string.judgement_toast
+            answer == currentQuest.questAnswer -> R.string.correct_toast
             else -> R.string.incorrect_toast
         }
         if(messageResId == R.string.correct_toast) quizViewModel.score++
