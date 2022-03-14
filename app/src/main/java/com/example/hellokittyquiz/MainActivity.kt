@@ -2,7 +2,7 @@
  * MCS 270
  * Hello Kitty Quiz
  * Now linked to Github :)
- * Challenge Sets 1,2 complete
+ * Challenge Sets 1,2,3,4 complete
  *
  * @author Austin Legatt
  */
@@ -24,6 +24,7 @@ private const val TAG = "MainActivity"
 private const val KEY_INDEX = "index"
 private const val REQUEST_CODE_CHEAT = 0
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     //Buttons declared

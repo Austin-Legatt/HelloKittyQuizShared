@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.example.hellokittyquiz.R.*
 
 const val EXTRA_ANSWER_SHOWN = "com.example.hellokittyquiz.answer_shown"
 private const val EXTRA_ANSWER_IS_TRUE =
@@ -33,11 +34,11 @@ class CheatActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cheat)
+        setContentView(layout.activity_cheat)
 
         answerIsTrue = intent.getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false)
-        answerTextView = findViewById(R.id.answer_text_view)
-        showAnswerButton = findViewById(R.id.show_answer_button)
+        answerTextView = findViewById(id.answer_text_view)
+        showAnswerButton = findViewById(id.show_answer_button)
 
         val answerShown = savedInstanceState?.getBoolean(KEY_CHEATED) ?: false
         cheatViewModel.answerShown = answerShown
@@ -54,8 +55,8 @@ class CheatActivity : AppCompatActivity() {
 
     private fun presentAnswer(){
         val answerText = when{
-            answerIsTrue -> R.string.true_button
-            else -> R.string.false_button
+            answerIsTrue -> string.true_button
+            else -> string.false_button
         }
         answerTextView.setText(answerText)
         setAnswerShownResult(true)
