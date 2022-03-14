@@ -1,11 +1,3 @@
-/***
- * MCS 270
- * Hello Kitty Quiz
- * Now linked to Github :)
- * Challenge Sets 1,2,3,4 complete
- *
- * @author Austin Legatt
- */
 package com.example.hellokittyquiz
 
 import android.app.Activity
