@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         tools:text="Question"/>
     <RadioGroup
         android:layout_width="match_parent"
@@ -17,22 +17,22 @@
         <RadioButton android:id="@+id/answerOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            tools:text=""
             android:onClick="onRadioButtonOneClicked"/>
         <RadioButton android:id="@+id/answerTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            tools:text=""
             android:onClick="onRadioButtonTwoClicked"/>
         <RadioButton android:id="@+id/answerThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            tools:text=""
             android:onClick="onRadioButtonThreeClicked"/>
         <RadioButton android:id="@+id/answerFour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            tools:text=""
             android:onClick="onRadioButtonFourClicked"/>
     </RadioGroup>
 
