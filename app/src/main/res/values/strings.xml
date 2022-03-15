@@ -21,4 +21,6 @@
     <string name="cheat_button">Cheat!</string>
     <string name="judgement_toast">Cheating is wrong.</string>
 
+    <string name="mc_button">Multiple Choice</string>
+
 </resources>
