@@ -23,11 +23,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var falseButton: Button
     private lateinit var cheatButton: Button
     private lateinit var mcButton: Button
+    private lateinit var tfButton: Button
     private lateinit var nextButton: ImageButton
     private lateinit var previousButton: ImageButton
     private lateinit var questionTextView: TextView
     private lateinit var trueFalseLayout: LinearLayout
     private lateinit var mcRecyclerView: RecyclerView
+
 
     private val quizViewModel: QuizViewModel by lazy {
         ViewModelProviders.of(this).get(QuizViewModel::class.java)
@@ -48,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         nextButton = findViewById(R.id.next_button)
         previousButton = findViewById(R.id.previous_button)
         mcButton = findViewById(R.id.mc_button)
+        tfButton = findViewById(R.id.tf_button)
         //Assign question TextView
         questionTextView = findViewById(R.id.question_text_view)
         trueFalseLayout = findViewById(R.id.true_false_layout)
@@ -106,6 +109,10 @@ class MainActivity : AppCompatActivity() {
         mcButton.setOnClickListener {
           trueFalseLayout.visibility = View.GONE
             mcRecyclerView.visibility = View.VISIBLE
+        }
+        tfButton.setOnClickListener {
+            trueFalseLayout.visibility = View.VISIBLE
+            mcRecyclerView.visibility = View.GONE
         }
 
     }

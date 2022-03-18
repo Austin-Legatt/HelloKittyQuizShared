@@ -73,6 +73,12 @@
             android:text="@string/mc_button">
         </Button>
     </LinearLayout>
+    <Button
+        android:id="@+id/tf_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tf_button">
+    </Button>
     <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/mc_recycler_view"
         android:layout_width="match_parent"
