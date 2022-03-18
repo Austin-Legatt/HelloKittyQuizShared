@@ -79,12 +79,18 @@
         android:layout_height="wrap_content"
         android:text="@string/tf_button">
     </Button>
-    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/mc_recycler_view"
-        android:layout_width="match_parent"
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container"
         android:layout_height="match_parent"
-        android:visibility="gone">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_width="match_parent">
+        <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/mc_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+        </androidx.recyclerview.widget.RecyclerView>
+    </FrameLayout>
 </LinearLayout>
 
 

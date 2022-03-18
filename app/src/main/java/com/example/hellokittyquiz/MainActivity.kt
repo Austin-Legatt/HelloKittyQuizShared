@@ -55,6 +55,14 @@ class MainActivity : AppCompatActivity() {
         questionTextView = findViewById(R.id.question_text_view)
         trueFalseLayout = findViewById(R.id.true_false_layout)
         mcRecyclerView = findViewById(R.id.mc_recycler_view)
+
+        val currentFragment  = supportFragmentManager.findFragmentById(R.id.fragment_container)
+
+        if(currentFragment == null){
+            val fragment = MCListFragment.newInstance()
+            supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragment).commit()
+        }
+
         /* Treat question text as a "next" button */
         questionTextView.setOnClickListener{
             quizViewModel.index = (quizViewModel.index+1) % quizViewModel.questionBank.size
