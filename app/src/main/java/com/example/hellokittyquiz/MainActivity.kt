@@ -5,12 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 
 private const val TAG = "MainActivity"
 private const val KEY_INDEX = "index"
@@ -23,9 +22,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var trueButton: Button
     private lateinit var falseButton: Button
     private lateinit var cheatButton: Button
+    private lateinit var mcButton: Button
+    private lateinit var tfButton: Button
     private lateinit var nextButton: ImageButton
     private lateinit var previousButton: ImageButton
     private lateinit var questionTextView: TextView
+    private lateinit var trueFalseLayout: LinearLayout
+    private lateinit var mcRecyclerView: RecyclerView
 
 
     private val quizViewModel: QuizViewModel by lazy {
@@ -46,9 +49,12 @@ class MainActivity : AppCompatActivity() {
         cheatButton = findViewById(R.id.cheat_button)
         nextButton = findViewById(R.id.next_button)
         previousButton = findViewById(R.id.previous_button)
+        mcButton = findViewById(R.id.mc_button)
+        tfButton = findViewById(R.id.tf_button)
         //Assign question TextView
         questionTextView = findViewById(R.id.question_text_view)
-
+        trueFalseLayout = findViewById(R.id.true_false_layout)
+        mcRecyclerView = findViewById(R.id.mc_recycler_view)
         /* Treat question text as a "next" button */
         questionTextView.setOnClickListener{
             quizViewModel.index = (quizViewModel.index+1) % quizViewModel.questionBank.size
@@ -99,6 +105,14 @@ class MainActivity : AppCompatActivity() {
             val answerIsTrue = quizViewModel.questionBank[quizViewModel.index].questAnswer
             val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
             startActivityForResult(intent, REQUEST_CODE_CHEAT)
+        }
+        mcButton.setOnClickListener {
+          trueFalseLayout.visibility = View.GONE
+            mcRecyclerView.visibility = View.VISIBLE
+        }
+        tfButton.setOnClickListener {
+            trueFalseLayout.visibility = View.VISIBLE
+            mcRecyclerView.visibility = View.GONE
         }
 
     }
