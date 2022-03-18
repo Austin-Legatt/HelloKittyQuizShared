@@ -6,6 +6,6 @@ class MCListViewModel: ViewModel() {
     val mcQuests = mutableListOf<MCQuestion>()
 
     init{
-        TODO("Implement question initialization")
+        mcQuests += MCQuestion(questText = "What is Hello Kitty's Astrology Sign?", questAnswers = arrayOf("Scorpio", "Gemini", "Pisces", "Taurus"), correctAnswer = 0)
     }
 }
