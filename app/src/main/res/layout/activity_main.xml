@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="gone">
         <TextView
             android:id="@+id/question_text_view"
             android:layout_width="wrap_content"
@@ -73,18 +73,28 @@
             android:text="@string/mc_button">
         </Button>
     </LinearLayout>
-    <Button
-        android:id="@+id/tf_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tf_button">
-    </Button>
-    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/mc_recycler_view"
+    <LinearLayout
+        android:id="@+id/mcQuestLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/tf_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tf_button"></Button>
+
+        <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+        </FrameLayout>
+    </LinearLayout>
+
 </LinearLayout>
 
 

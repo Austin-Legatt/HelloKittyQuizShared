@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var previousButton: ImageButton
     private lateinit var questionTextView: TextView
     private lateinit var trueFalseLayout: LinearLayout
-    private lateinit var mcRecyclerView: RecyclerView
+    private lateinit var frameContainer: FrameLayout
+    private lateinit var mcQuestLayout: LinearLayout
 
 
     private val quizViewModel: QuizViewModel by lazy {
@@ -54,7 +55,16 @@ class MainActivity : AppCompatActivity() {
         //Assign question TextView
         questionTextView = findViewById(R.id.question_text_view)
         trueFalseLayout = findViewById(R.id.true_false_layout)
-        mcRecyclerView = findViewById(R.id.mc_recycler_view)
+        frameContainer = findViewById(R.id.fragment_container)
+        mcQuestLayout = findViewById(R.id.mcQuestLayout)
+
+        val currentFragment  = supportFragmentManager.findFragmentById(R.id.fragment_container)
+
+        if(currentFragment == null){
+            val fragment = MCListFragment.newInstance()
+            supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragment).commit()
+        }
+
         /* Treat question text as a "next" button */
         questionTextView.setOnClickListener{
             quizViewModel.index = (quizViewModel.index+1) % quizViewModel.questionBank.size
@@ -107,12 +117,12 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, REQUEST_CODE_CHEAT)
         }
         mcButton.setOnClickListener {
-          trueFalseLayout.visibility = View.GONE
-            mcRecyclerView.visibility = View.VISIBLE
+            trueFalseLayout.visibility = View.GONE
+            mcQuestLayout.visibility = View.VISIBLE
         }
         tfButton.setOnClickListener {
             trueFalseLayout.visibility = View.VISIBLE
-            mcRecyclerView.visibility = View.GONE
+            mcQuestLayout.visibility = View.GONE
         }
 
     }
