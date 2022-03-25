@@ -21,13 +21,13 @@ class MCListFragment: Fragment() {
     private lateinit var mcRecyclerView: RecyclerView
     private var adapter: MCAdapter? = null
 
-    private val crimeListViewModel: MCListViewModel by lazy {
+    private val mcListViewModel: MCListViewModel by lazy {
         ViewModelProviders.of(this).get(MCListViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "Total crimes: ${crimeListViewModel.mcQuests.size}")
+        Log.d(TAG, "Total questions: ${mcListViewModel.mcQuests.size}")
     }
 
     override fun onCreateView(
@@ -47,7 +47,7 @@ class MCListFragment: Fragment() {
     }
 
     private fun updateUI(){
-        val mcQuests = crimeListViewModel.mcQuests
+        val mcQuests = mcListViewModel.mcQuests
         adapter = MCAdapter(mcQuests)
         mcRecyclerView.adapter = adapter
     }
