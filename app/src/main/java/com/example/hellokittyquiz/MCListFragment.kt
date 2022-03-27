@@ -72,7 +72,7 @@ class MCListFragment: Fragment() {
             title.text = this.mcQuest.questText
             for (i in 0 until 4) {
                 answerButtons[i].text = this.mcQuest.questAnswers[i]
-            }
+                }
         }
 
         override fun onClick(v: View){

@@ -19,22 +19,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text=""
-            android:onClick="onRadioButtonOneClicked"/>
+            android:onClick="onClickedButtonOne"/>
         <RadioButton android:id="@+id/answerTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text=""
-            android:onClick="onRadioButtonTwoClicked"/>
+            android:onClick="onClickedButtonTwo"/>
         <RadioButton android:id="@+id/answerThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text=""
-            android:onClick="onRadioButtonThreeClicked"/>
+            android:onClick="onClickedButtonThree"/>
         <RadioButton android:id="@+id/answerFour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text=""
-            android:onClick="onRadioButtonFourClicked"/>
+            android:onClick="onClickedButtonFour"/>
     </RadioGroup>
 
 </LinearLayout>

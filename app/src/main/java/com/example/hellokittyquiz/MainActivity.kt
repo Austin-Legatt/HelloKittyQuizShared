@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.RecyclerView
+
 
 private const val TAG = "MainActivity"
 private const val KEY_INDEX = "index"
@@ -126,6 +126,20 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    fun onClickedButtonOne(view: View?) {
+        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
+    }
+    fun onClickedButtonTwo(view: View?) {
+        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
+    }
+    fun onClickedButtonThree(view: View?) {
+        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
+    }
+    fun onClickedButtonFour(view: View?) {
+        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
+    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
