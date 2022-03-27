@@ -10,6 +10,7 @@ import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,9 +18,13 @@ import org.w3c.dom.Text
 
 private const val TAG = "MCListFragment"
 
+
 class MCListFragment: Fragment() {
+
+
     private lateinit var mcRecyclerView: RecyclerView
     private var adapter: MCAdapter? = null
+
 
     private val mcListViewModel: MCListViewModel by lazy {
         ViewModelProviders.of(this).get(MCListViewModel::class.java)
@@ -74,7 +79,6 @@ class MCListFragment: Fragment() {
                 answerButtons[i].text = this.mcQuest.questAnswers[i]
                 }
         }
-
         override fun onClick(v: View){
             //Toast.makeText(context, "${crime.title} pressed!", Toast.LENGTH_SHORT).show()
         }
@@ -93,7 +97,9 @@ class MCListFragment: Fragment() {
             val mcQuest = mcQuests[position]
             holder.bind(mcQuest)
         }
+
     }
+
 
     companion object{
         fun newInstance(): MCListFragment {

@@ -8,6 +8,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProviders
 
 
@@ -35,6 +36,10 @@ class MainActivity : AppCompatActivity() {
     private val quizViewModel: QuizViewModel by lazy {
         ViewModelProviders.of(this).get(QuizViewModel::class.java)
     }
+    private val mcListViewModel: MCListViewModel by lazy {
+        ViewModelProviders.of(this).get(MCListViewModel::class.java)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -127,18 +132,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun onClickedButtonOne(view: View?) {
-        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
-    }
-    fun onClickedButtonTwo(view: View?) {
-        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
-    }
-    fun onClickedButtonThree(view: View?) {
-        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
-    }
-    fun onClickedButtonFour(view: View?) {
-        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
-    }
+
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -199,6 +193,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
+    fun onClickedButtonOne(view: View?) {
+        //correctAnswer of MCListViewModel must be called and checked if it is
+        if (mcListViewModel.mcQuests[0].correctAnswer == 0){
+            Toast.makeText(this, "yes", Toast.LENGTH_LONG).show()
+        }
+    }
+    fun onClickedButtonTwo(view: View?) {
+        //correctAnswer of MCListViewModel must be called and checked if it is 1
+    }
+    fun onClickedButtonThree(view: View?) {
+        //correctAnswer of MCListViewModel must be called and checked if it is 2
+    }
+    fun onClickedButtonFour(view: View?) {
+        //correctAnswer of MCListViewModel must be called and checked if it is 3
+    }
     /***
      * Change the clickable state of the answer buttons
      */
