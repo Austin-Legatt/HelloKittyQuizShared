@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         val currentIndex = savedInstanceState?.getInt(KEY_INDEX, 0) ?: 0
         quizViewModel.index = currentIndex
-
+//Adding commentary for merging
         //Buttons vars assigned
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
