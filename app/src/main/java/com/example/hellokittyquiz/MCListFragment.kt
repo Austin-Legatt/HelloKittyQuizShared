@@ -3,10 +3,12 @@ package com.example.hellokittyquiz
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -58,6 +60,7 @@ class MCListFragment: Fragment() {
         private lateinit var mcQuest: MCQuestion
 
         private val title: TextView = itemView.findViewById(R.id.question)
+        private val radio: RadioGroup = itemView.findViewById(R.id.radioGroup)
         private val answerButtons: Array<RadioButton> = arrayOf(itemView.findViewById(R.id.answerOne),
             itemView.findViewById(R.id.answerTwo),
             itemView.findViewById(R.id.answerThree),
@@ -76,7 +79,26 @@ class MCListFragment: Fragment() {
         }
 
         override fun onClick(v: View){
-            //Toast.makeText(context, "${crime.title} pressed!", Toast.LENGTH_SHORT).show()
+            radio.setOnCheckedChangeListener { radioGroup, i ->
+                Log.d(TAG, radioGroup.checkedRadioButtonId.toString())
+                if(answerButtons[this.mcQuest.correctAnswer].id == radioGroup.checkedRadioButtonId){
+                    val toast: Toast = Toast.makeText(
+                        activity,
+                        "Correct",
+                        Toast.LENGTH_LONG
+                    )
+                    toast.setGravity(Gravity.TOP, 0, 0)
+                    toast.show()
+                } else{
+                    val toast: Toast = Toast.makeText(
+                        activity,
+                        "Incorrect",
+                        Toast.LENGTH_LONG
+                    )
+                    toast.setGravity(Gravity.TOP, 0, 0)
+                    toast.show()
+                }
+        }
         }
     }
 
