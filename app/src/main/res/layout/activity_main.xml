@@ -79,20 +79,25 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center_horizontal">
-
         <Button
             android:id="@+id/tf_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tf_button"></Button>
-
+            android:text="@string/tf_button"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center"
+            android:text="@string/force_user_interaction">
+        </TextView>
         <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical">
-        </FrameLayout>
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"/>
+
     </LinearLayout>
 
 </LinearLayout>
