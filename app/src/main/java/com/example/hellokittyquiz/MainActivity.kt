@@ -64,7 +64,6 @@ class MainActivity : AppCompatActivity() {
         trueFalseLayout = findViewById(R.id.true_false_layout)
         frameContainer = findViewById(R.id.fragment_container)
         mcQuestLayout = findViewById(R.id.mcQuestLayout)
-        checkMCButton = findViewById(R.id.checkMC_button)
 
         val currentFragment  = supportFragmentManager.findFragmentById(R.id.fragment_container)
 
@@ -131,12 +130,6 @@ class MainActivity : AppCompatActivity() {
         tfButton.setOnClickListener {
             trueFalseLayout.visibility = View.VISIBLE
             mcQuestLayout.visibility = View.GONE
-        }
-        checkMCButton.setOnClickListener{
-            //need to check the radio button that we are looking at via number or text, whichever is easier
-            if (  "a" == mcListViewModel.mcQuests[0].questAnswers[mcListViewModel.mcQuests[0].correctAnswer]){
-
-            }
         }
 
     }
