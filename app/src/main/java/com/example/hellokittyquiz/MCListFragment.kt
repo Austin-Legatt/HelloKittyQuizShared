@@ -3,13 +3,16 @@ package com.example.hellokittyquiz
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,17 +20,21 @@ import org.w3c.dom.Text
 
 private const val TAG = "MCListFragment"
 
+
 class MCListFragment: Fragment() {
+
+
     private lateinit var mcRecyclerView: RecyclerView
     private var adapter: MCAdapter? = null
 
-    private val crimeListViewModel: MCListViewModel by lazy {
+
+    private val mcListViewModel: MCListViewModel by lazy {
         ViewModelProviders.of(this).get(MCListViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "Total crimes: ${crimeListViewModel.mcQuests.size}")
+        Log.d(TAG, "Total questions: ${mcListViewModel.mcQuests.size}")
     }
 
     override fun onCreateView(
@@ -47,7 +54,7 @@ class MCListFragment: Fragment() {
     }
 
     private fun updateUI(){
-        val mcQuests = crimeListViewModel.mcQuests
+        val mcQuests = mcListViewModel.mcQuests
         adapter = MCAdapter(mcQuests)
         mcRecyclerView.adapter = adapter
     }
@@ -58,6 +65,7 @@ class MCListFragment: Fragment() {
         private lateinit var mcQuest: MCQuestion
 
         private val title: TextView = itemView.findViewById(R.id.question)
+        private val radio: RadioGroup = itemView.findViewById(R.id.radioGroup)
         private val answerButtons: Array<RadioButton> = arrayOf(itemView.findViewById(R.id.answerOne),
             itemView.findViewById(R.id.answerTwo),
             itemView.findViewById(R.id.answerThree),
@@ -72,11 +80,29 @@ class MCListFragment: Fragment() {
             title.text = this.mcQuest.questText
             for (i in 0 until 4) {
                 answerButtons[i].text = this.mcQuest.questAnswers[i]
-            }
+                }
         }
-
         override fun onClick(v: View){
-            //Toast.makeText(context, "${crime.title} pressed!", Toast.LENGTH_SHORT).show()
+            radio.setOnCheckedChangeListener { radioGroup, i ->
+                Log.d(TAG, radioGroup.checkedRadioButtonId.toString())
+                if(answerButtons[this.mcQuest.correctAnswer].id == radioGroup.checkedRadioButtonId){
+                    val toast: Toast = Toast.makeText(
+                        activity,
+                        "Correct",
+                        Toast.LENGTH_LONG
+                    )
+                    toast.setGravity(Gravity.TOP, 0, 0)
+                    toast.show()
+                } else{
+                    val toast: Toast = Toast.makeText(
+                        activity,
+                        "Incorrect",
+                        Toast.LENGTH_LONG
+                    )
+                    toast.setGravity(Gravity.TOP, 0, 0)
+                    toast.show()
+                }
+        }
         }
     }
 
@@ -93,7 +119,9 @@ class MCListFragment: Fragment() {
             val mcQuest = mcQuests[position]
             holder.bind(mcQuest)
         }
+
     }
+
 
     companion object{
         fun newInstance(): MCListFragment {
