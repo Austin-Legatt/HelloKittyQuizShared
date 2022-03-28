@@ -12,29 +12,30 @@
         tools:text="Question"/>
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:id="@+id/radioGroup">
         <RadioButton android:id="@+id/answerOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text=""
-            android:onClick="onClickedButtonOne"/>
+            tools:text=" "
+            />
         <RadioButton android:id="@+id/answerTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text=""
-            android:onClick="onClickedButtonTwo"/>
+            tools:text=" "
+            />
         <RadioButton android:id="@+id/answerThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text=""
-            android:onClick="onClickedButtonThree"/>
+            tools:text=" "
+            />
         <RadioButton android:id="@+id/answerFour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text=""
-            android:onClick="onClickedButtonFour"/>
+            tools:text=" "
+            />
     </RadioGroup>
 
 </LinearLayout>
