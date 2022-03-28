@@ -25,6 +25,5 @@
     <string name="mc_button">Multiple Choice</string>
     <string name="tf_button">True False</string>
     <string name="checkMC_button">Check Answer</string>
-    <string name="force_user_interaction">Tap on the question and then select your answer</string>
 
 </resources>
