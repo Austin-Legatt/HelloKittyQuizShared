@@ -25,12 +25,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cheatButton: Button
     private lateinit var mcButton: Button
     private lateinit var tfButton: Button
+    private lateinit var checkMCButton: Button
     private lateinit var nextButton: ImageButton
     private lateinit var previousButton: ImageButton
     private lateinit var questionTextView: TextView
     private lateinit var trueFalseLayout: LinearLayout
     private lateinit var frameContainer: FrameLayout
     private lateinit var mcQuestLayout: LinearLayout
+
 
 
     private val quizViewModel: QuizViewModel by lazy {
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         trueFalseLayout = findViewById(R.id.true_false_layout)
         frameContainer = findViewById(R.id.fragment_container)
         mcQuestLayout = findViewById(R.id.mcQuestLayout)
+        checkMCButton = findViewById(R.id.checkMC_button)
 
         val currentFragment  = supportFragmentManager.findFragmentById(R.id.fragment_container)
 
@@ -128,6 +131,12 @@ class MainActivity : AppCompatActivity() {
         tfButton.setOnClickListener {
             trueFalseLayout.visibility = View.VISIBLE
             mcQuestLayout.visibility = View.GONE
+        }
+        checkMCButton.setOnClickListener{
+            //need to check the radio button that we are looking at via number or text, whichever is easier
+            if (  "a" == mcListViewModel.mcQuests[0].questAnswers[mcListViewModel.mcQuests[0].correctAnswer]){
+
+            }
         }
 
     }
@@ -197,9 +206,6 @@ class MainActivity : AppCompatActivity() {
 
     fun onClickedButtonOne(view: View?) {
         //correctAnswer of MCListViewModel must be called and checked if it is
-        if (mcListViewModel.mcQuests[0].correctAnswer == 0){
-            Toast.makeText(this, "yes", Toast.LENGTH_LONG).show()
-        }
     }
     fun onClickedButtonTwo(view: View?) {
         //correctAnswer of MCListViewModel must be called and checked if it is 1
