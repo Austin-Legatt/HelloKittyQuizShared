@@ -8,8 +8,9 @@ import android.view.Gravity
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.RecyclerView
+
 
 private const val TAG = "MainActivity"
 private const val KEY_INDEX = "index"
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cheatButton: Button
     private lateinit var mcButton: Button
     private lateinit var tfButton: Button
+    private lateinit var checkMCButton: Button
     private lateinit var nextButton: ImageButton
     private lateinit var previousButton: ImageButton
     private lateinit var questionTextView: TextView
@@ -32,9 +34,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mcQuestLayout: LinearLayout
 
 
+
     private val quizViewModel: QuizViewModel by lazy {
         ViewModelProviders.of(this).get(QuizViewModel::class.java)
     }
+    private val mcListViewModel: MCListViewModel by lazy {
+        ViewModelProviders.of(this).get(MCListViewModel::class.java)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         trueFalseLayout = findViewById(R.id.true_false_layout)
         frameContainer = findViewById(R.id.fragment_container)
         mcQuestLayout = findViewById(R.id.mcQuestLayout)
+        checkMCButton = findViewById(R.id.checkMC_button)
 
         val currentFragment  = supportFragmentManager.findFragmentById(R.id.fragment_container)
 
@@ -124,8 +132,15 @@ class MainActivity : AppCompatActivity() {
             trueFalseLayout.visibility = View.VISIBLE
             mcQuestLayout.visibility = View.GONE
         }
+        checkMCButton.setOnClickListener{
+            //need to check the radio button that we are looking at via number or text, whichever is easier
+            if (  "a" == mcListViewModel.mcQuests[0].questAnswers[mcListViewModel.mcQuests[0].correctAnswer]){
+
+            }
+        }
 
     }
+
 
 
 
@@ -187,6 +202,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
+    fun onClickedButtonOne(view: View?) {
+        //correctAnswer of MCListViewModel must be called and checked if it is
+    }
+    fun onClickedButtonTwo(view: View?) {
+        //correctAnswer of MCListViewModel must be called and checked if it is 1
+    }
+    fun onClickedButtonThree(view: View?) {
+        //correctAnswer of MCListViewModel must be called and checked if it is 2
+    }
+    fun onClickedButtonFour(view: View?) {
+        //correctAnswer of MCListViewModel must be called and checked if it is 3
+    }
     /***
      * Change the clickable state of the answer buttons
      */
